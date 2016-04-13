@@ -1,0 +1,29 @@
+<html>
+<head>
+<script type="text/javascript" src="script.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css"> 
+</head>
+<body>
+
+    <div>    
+        <label for="counter"><abbr title="Quantity">Counter</abbr></label>
+        <input id="counter" value="0" />
+        <button id="down" onclick="modify_counter(-1)">-1</button>
+        <button id="up" onclick="modify_counter(1)">+1</button>
+    </div>
+	
+	<script>
+		function modify_counter(val) {
+		    var counter = document.getElementById('counter').value;
+		    var new_counter = parseInt(counter,10) + val;
+		    
+		    if (new_counter < 0) {
+		        new_counter = 0;
+		    }
+		    
+		    document.getElementById('counter').value = new_counter;
+		    return new_counter;
+		}
+	</script>
+</body>
+</html>
