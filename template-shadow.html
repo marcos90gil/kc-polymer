@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>HTML templates</title>
+	<style>
+		.news {
+			border: 2px solid;
+    		border-radius: 30px;
+    		text-align: center;
+    		padding: 20px;
+		}
+		.image-border {
+			border: 2px solid;
+    		border-radius: 20px;
+    		text-align: center;
+		}
+
+	</style>
+</head>
+<body>
+	<body>
+
+    <template id="news">
+		<div class="image-border">
+			<img src="">
+		</div>
+		<div class="body"></div>
+	</template>
+
+	<div class="news">
+		<div id="new-1"></div>
+		<div id="new-2"></div>
+	</div>
+
+
+	<script>
+	function createNew(container, image, body) {
+		var root = document.querySelector(container).createShadowRoot();
+		var template = document.querySelector('#news').content;
+		template.querySelector('img').src = image;
+		template.querySelector('.body').textContent = body;
+		root.appendChild(template.cloneNode(true));
+	}
+
+	createNew('#new-1', 'http://placehold.it/350x150/FFC107/000000', 'article 1');
+	createNew('#new-2', 'http://placehold.it/350x150/FFC107/000000', 'article 2');
+			
+	</script>
+
+</body>	
+</body>
+</html>
