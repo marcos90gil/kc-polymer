@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Shadow DOM labels</title>
+</head>
+<body>
+	<body>
+
+    <div>    
+        <div id="host">light dom content</div>
+    </div>
+	
+	<script>
+
+		var host = document.querySelector('#host');
+		var root1 = host.createShadowRoot();
+		root1.innerHTML = 
+			'antes del anidamiento' +
+			'<div id="host"></div> ' +
+			'después del anidamiento';
+
+		var host1 = root1.querySelector('#host');
+		var root11 = host1.createShadowRoot();
+		root11.innerHTML = 'root11 dentro del anidamiento ';
+
+	</script>
+
+</body>	
+</body>
+</html>
