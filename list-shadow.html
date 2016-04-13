@@ -20,23 +20,25 @@
 	<body>
 
     <div>    
-        <div id="host">
-        	<div class="name">Marcos Gil</div>
-        	<div class="twitter">@marcos90gil</div>
-    	</div>
+    	<div id="cart"> 
+    		<div class="product">
+				<div class="name">Cow</div>
+				<div class="price">10$</div>
+			</div>
+			<div class="product"> 
+				<div class="name">Orange</div> 
+				<div class="price">10$</div>
+			</div>  
+		</div>
     </div>
 	
 	<script>
 
-		var host = document.querySelector('#host');
+		var host = document.querySelector('#cart');
 		var root1 = host.createShadowRoot();
-		root1.innerHTML = 
-			'<content select=".name"></content>' +
-			'<content select=".twitter"></content>' +
-			'<div id="description">' +
-			'FullStack web developer' +
-			'</div>';
-
+		root1.innerHTML =
+			'<content select=".product"></content>';
+				
 	</script>
 
 </body>	
