@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Shadow DOM labels</title>
+	<style>
+		#host {
+			border: 2px solid;
+    		border-radius: 20px;
+    		text-align: center;
+		}
+		#description {
+			border: 2px solid;
+    		border-radius: 20px;
+    		text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<body>
+
+    <div>    
+    	<div id="cart"> 
+    		<div class="product">
+				<div class="name">Cow</div>
+				<div class="price">10$</div>
+			</div>
+			<div class="product"> 
+				<div class="name">Orange</div> 
+				<div class="price">10$</div>
+			</div>  
+		</div>
+    </div>
+	
+	<script>
+
+		var host = document.querySelector('#cart');
+		var root1 = host.createShadowRoot();
+		root1.innerHTML =
+			'<content select=".product"></content>';
+				
+	</script>
+
+</body>	
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Shadow DOM labels</title>
+	<style>
+		#host {
+			border: 2px solid;
+    		border-radius: 20px;
+    		text-align: center;
+		}
+		#description {
+			border: 2px solid;
+    		border-radius: 20px;
+    		text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<body>
+
+    <div>    
+        <div id="host">
+        	<div class="name">Marcos Gil</div>
+        	<div class="twitter">@marcos90gil</div>
+    	</div>
+    </div>
+	
+	<script>
+
+		var host = document.querySelector('#host');
+		var root1 = host.createShadowRoot();
+		root1.innerHTML = 
+			'<content select=".name"></content>' +
+			'<content select=".twitter"></content>' +
+			'<div id="description">' +
+			'FullStack web developer' +
+			'</div>';
+
+	</script>
+
+</body>	
+</body>
+</html>

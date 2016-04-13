@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Shadow counter</title>
+</head>
+<body>
+	<body>
+
+    <div>    
+        <div id="host">Content of light dom</div>
+    </div>
+	
+	<script>
+		var host = document.querySelector('#host');
+		var root = host.createShadowRoot();
+		root.innerHTML = 
+			'<label for="counter">Counter</label>' +
+			'<input id="counter" value="0" />' + 
+        	'<button id="down" onclick="modify_counter(-1)">-1</button>' +
+        	'<button id="up" onclick="modify_counter(1)">+1</button>';
+
+
+		function modify_counter(val) {
+		    var counter = root.querySelector('#counter').value;
+		    var new_counter = parseInt(counter,10) + val;
+		    
+		    if (new_counter < 0) {
+		        new_counter = 0;
+		    }
+		    
+		    root.querySelector('#counter').value = new_counter;
+		    return new_counter;
+		}
+
+	</script>
+
+</body>	
+</body>
+</html>

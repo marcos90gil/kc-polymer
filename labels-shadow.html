@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Shadow DOM labels</title>
+</head>
+<body>
+	<body>
+
+    <div>    
+        <div id="host">light dom content</div>
+    </div>
+	
+	<script>
+
+		var host = document.querySelector('#host');
+		var root1 = host.createShadowRoot();
+		var root2 = host.createShadowRoot();
+		var root3 = host.createShadowRoot();
+		root1.innerHTML = 'root1 content';
+		root2.innerHTML = 'root2 content <shadow></shadow> ';
+		root3.innerHTML = 'root3 content <shadow></shadow> ';
+
+	</script>
+
+</body>	
+</body>
+</html>

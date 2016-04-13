@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Custom tags</title>
+	<style>
+		#host {
+			border: 2px solid;
+    		border-radius: 20px;
+    		text-align: center;
+			margin-top: 20px;
+    		padding: 10px;
+		}
+		#description {
+			border: 2px solid;
+    		border-radius: 20px;
+    		text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<body>
+		
+		<template id="card">
+			<img src="">
+			<div class="body"></div>
+		</template>
+
+	    <wc-card id="card-1">
+	    	<wc-card-name>Marcos Gil</wc-card-name>
+	    	<wc-card-twitter>@marcos90gil</wc-card-twitter>
+	    	<wc-card-image>http://placehold.it/350x150/FFC107/000000</wc-card-image>
+		</wc-card>
+
+	<script>
+
+		var p = Object.create(HTMLElement.prototype);
+		p.createdCallback = function() {
+			// Create a Shadow Root
+		    var shadow = this.createShadowRoot();
+		    var template = document.querySelector('#card').content;
+		    template.querySelector('img').src = this.querySelector('wc-card-image').textContent;
+		    template.querySelector('.body').textContent = 
+		    	this.querySelector('wc-card-name').textContent +
+		    	' > ' +
+		    	this.querySelector('wc-card-twitter').textContent;
+		    shadow.appendChild(template.cloneNode(true));
+
+		};
+
+		// Register the new element.
+		var Card = document.registerElement('wc-card', {
+			prototype: p
+		});
+
+		// var a = new Card();
+		// var b = document.createElement('wc-card');
+		// document.body.appendChild(a);
+		// document.body.appendChild(b);
+
+	</script>
+
+</body>	
+</body>
+</html>
