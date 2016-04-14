@@ -1,0 +1,22 @@
+<template id="news">
+   <img src="" style="width:350px; border: black solid; border-radius: 5px;">
+   <div class="body"></div>
+</template>
+
+<script>
+	(function() {
+		var doc = document.currentScript.ownerDocument;
+		var p = Object.create(HTMLElement.prototype);
+		p.createdCallback = function() {
+		   var root = this.createShadowRoot();
+		   var template = doc.querySelector("#news").content;
+		   template.querySelector("img").src = this.querySelector("wc-new-img").textContent;
+		   template.querySelector(".body").textContent = this.querySelector("wc-new-body").textContent;
+		   root.appendChild(template.cloneNode(true));
+		};
+		document.registerElement(
+		   'wc-new', {
+		       prototype: p
+	   });
+	})();
+</script>

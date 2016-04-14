@@ -1,0 +1,86 @@
+<link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
+
+<dom-module id="wc-movie">
+	
+	<template>
+		
+		<style>
+			#movie {
+				margin: 10px;
+				padding: 20px;
+				border: solid 2px #ccc;
+				border-radius: 25px;
+				box-shadow: 5px 5px 5px #bbb;
+			}
+			.block {
+				display: block;
+			}
+			.centered {
+				text-align: center;
+			}		
+		</style>
+
+		<div id="movie">
+			<h2>Movie</h2>
+			<img src=""></img>
+			<div id="title">{{title}}</div>
+			<div id="overview"></div>
+			<div class="block">
+				<span>Choose column</span>
+				<input type="number" id="col" placeholder="Column"></input>
+			</div>
+			<div class="block">	
+				<span>Choose row</span>
+				<input type="number" id="row" placeholder="Row"></input>
+			</div>
+			<div class="block centered">
+				<button id="ses1" value="18:00">18:00</button>
+				<button id="ses2" value="20:00">20:00</button>
+			</div>
+		</div>
+
+	</template>
+	
+	<script>
+		
+	(function () {
+		WCMovie = Polymer ({
+			is : 'wc-movie',
+			properties : {
+				title : {
+					type  :String,
+					value: ''
+				},
+				overview : {
+					type : String,
+					value: ''
+				},
+				col : {
+					type : Number,
+					value : ''
+				},
+				col : {
+					type : Number,
+					value : ''
+				},
+				seat : {
+					type : String,
+					readOnly : true,
+					computed : 'getSeat(row, col)'
+				}
+			},
+
+			getSeat : function (row, col) {
+				return row + col;
+			},
+
+			ready : function () {
+				
+			}
+		});	
+	})();
+
+	</script>
+
+</dom-module>
+

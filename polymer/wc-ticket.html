@@ -1,0 +1,85 @@
+<link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
+
+<dom-module id="wc-ticket">
+	
+	<template>
+		
+		<style>
+			#ticket {
+				margin: 10px;
+				padding: 20px;
+				border: solid 2px #ccc;
+				border-radius: 25px;
+				box-shadow: 5px 5px 5px #bbb;
+			}
+			.block {
+				display: block;
+			}	
+		</style>
+
+		<div id="ticket">
+			<h2>Ticket</h2>
+			<img src=""></img>
+			<div id="title">{{title}}</div>
+			<div id="overview">{{overview}}</div>
+			<div class="block">
+				<span>Session</span>
+				<div id="session">{{session}}</div>
+			</div>
+			<div class="block">
+				<span>Column</span>
+				<div id="col">{{col}}</div>
+				<span>Row</span>
+				<div id="row">{{row}}</div>
+			</div>
+		</div>
+
+	</template>
+	
+	<script>
+		
+	(function () {
+		WCTicket = Polymer ({
+			is : 'wc-ticket',
+			properties : {
+				title : {
+					type : String,
+					value: ''
+				},
+				overview : {
+					type : String,
+					value: ''
+				},
+				session : {
+					type : String,
+					value: ''
+				},
+				col : {
+					type : Number,
+					value : ''
+				},
+				row : {
+					type : Number,
+					value : ''
+				},
+				seat : {
+					type : String,
+					readOnly : true,
+					computed : 'getSeat(row, col)'
+				}
+			},
+
+			getSeat : function (row, col) {
+				return row + col;
+			},
+
+			ready : function () {
+			
+			}
+		});	
+	})();
+
+	</script>
+
+</dom-module>
+
