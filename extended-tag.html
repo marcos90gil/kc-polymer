@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Extended tag</title>
+</head>
+<body>
+	
+	<button is="wc-button">Click me</button>
+
+	<script>
+		var countClick = function() {
+			console.log('Click on extended button');
+		};
+
+		var btn = Object.create(HTMLButtonElement.prototype);
+		btn.createdCallback = function() {
+			// Create event listener
+			this.addEventListener("click", countClick);
+		};
+
+		// Register the new element.
+		var Card = document.registerElement('wc-button', {
+			extends: 'button',
+			prototype: btn
+		});
+
+	</script>
+
+</body>
+</html>
