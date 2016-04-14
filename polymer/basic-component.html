@@ -15,14 +15,18 @@
 		</style>
 
 		<div id="movie">
-			<div id="title"></div>
 			<img src=""></img>
+			<div id="title"></div>
 			<div id="overview"></div>
-			<select name="select">
-				<option value="sesi1" selected>18:00</option> 
-				<option value="value2">20:00</option>
-				<option value="value3">22:00</option>
+			<div>{{title}}</div>
+			<select name="sesion">
+				<option value="sesion1" selected>18:00</option> 
+				<option value="sesion2">20:00</option>
+				<option value="sesion3">22:00</option>
 			</select>
+			<input type="number" id="col" placeholder="Column"></input>
+			<input type="number" id="row" placeholder="Row"></input>
+
 			<button id="ticket">Buy ticket</button>
 		</div>
 
@@ -36,18 +40,34 @@
 			properties : {
 				title : {
 					type : String,
-					value: ''
+					value: 'American Gangster'
 				},
 				overview : {
 					type : String,
 					value: ''
 				},
+				col : {
+					type : Number,
+					value : ''
+				},
+				col : {
+					type : Number,
+					value : ''
+				},
+				seat : {
+					type : String,
+					readOnly : true,
+					computed : 'getSeat(row, col)'
+				}
 			},
-			ready: function () {
-				var dtitle = this.$.title;
-				dtitle.textContent = 'Title';
-				var doverview = this.$.overview;
-				doverview.textContent = 'Overview';
+
+			getSeat : function (row, col) {
+				return row + col;
+			},
+
+			ready : function () {
+				this.$.title.textContent = (new Date ()).toLocaleDateString();
+				this.$.overview.textContent = Date.now ();
 			}
 		});	
 	})();
