@@ -1,0 +1,43 @@
+<link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
+
+<dom-module id="wc-wallet">
+	
+	<template>
+		
+		<style>
+			#wallet {
+				margin: 10px;
+				padding: 20px;
+				border: solid 2px #ccc;
+				border-radius: 25px;
+			}
+			.block {
+				display: block;
+			}	
+		</style>
+
+		<div id="wallet">
+			<h1>Wallet</h1>
+			<content></content>
+		</div>
+
+	</template>
+	
+	<script>
+		
+	(function () {
+		WCWallet = Polymer ({
+			is : 'wc-wallet',
+			addTicket : function (ticket) {
+				console.log('Ticket', ticket);
+			},
+			ready : function () {
+				
+			}
+		});	
+	})();
+
+	</script>
+
+</dom-module>
+

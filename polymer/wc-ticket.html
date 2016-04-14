@@ -1,33 +1,37 @@
 <link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
 
-<dom-module id="wc-movie">
+<dom-module id="wc-ticket">
 	
 	<template>
 		
 		<style>
-			#movie {
+			#ticket {
 				margin: 10px;
 				padding: 20px;
 				border: solid 2px #ccc;
 				border-radius: 25px;
 				box-shadow: 5px 5px 5px #bbb;
+			}
+			.block {
+				display: block;
 			}	
 		</style>
 
-		<div id="movie">
+		<div id="ticket">
+			<h2>Ticket</h2>
 			<img src=""></img>
-			<div id="title"></div>
-			<div id="overview"></div>
-			<div>{{title}}</div>
-			<select name="sesion">
-				<option value="sesion1" selected>18:00</option> 
-				<option value="sesion2">20:00</option>
-				<option value="sesion3">22:00</option>
-			</select>
-			<input type="number" id="col" placeholder="Column"></input>
-			<input type="number" id="row" placeholder="Row"></input>
-
-			<button id="ticket">Buy ticket</button>
+			<div id="title">{{title}}</div>
+			<div id="overview">{{overview}}</div>
+			<div class="block">
+				<span>Session</span>
+				<div id="session">{{session}}</div>
+			</div>
+			<div class="block">
+				<span>Column</span>
+				<div id="col">{{col}}</div>
+				<span>Row</span>
+				<div id="row">{{row}}</div>
+			</div>
 		</div>
 
 	</template>
@@ -35,14 +39,18 @@
 	<script>
 		
 	(function () {
-		WCMovie = Polymer ({
-			is : 'wc-movie',
+		WCTicket = Polymer ({
+			is : 'wc-ticket',
 			properties : {
 				title : {
 					type : String,
-					value: 'American Gangster'
+					value: ''
 				},
 				overview : {
+					type : String,
+					value: ''
+				},
+				session : {
 					type : String,
 					value: ''
 				},
@@ -50,7 +58,7 @@
 					type : Number,
 					value : ''
 				},
-				col : {
+				row : {
 					type : Number,
 					value : ''
 				},
@@ -66,8 +74,7 @@
 			},
 
 			ready : function () {
-				this.$.title.textContent = (new Date ()).toLocaleDateString();
-				this.$.overview.textContent = Date.now ();
+			
 			}
 		});	
 	})();
