@@ -1,0 +1,42 @@
+<template id="news">
+	
+	<style>
+		.news {
+			border: 2px solid;
+    		border-radius: 30px;
+    		text-align: center;
+    		padding: 20px;
+		}
+		.image-border {
+			border: 2px solid;
+    		border-radius: 20px;
+		}
+
+	</style>
+
+	<div class="image-border">
+		<img src="">
+	</div>
+	<div class="body"></div>
+
+</template>
+
+
+<script>
+
+(function () {
+	var doc = document.currentScript.ownerDocument;
+	var WCNewPrototype = Object.create (HTMLElement.prototype);
+	WCNewPrototype.createdCallback = function () {
+		var root = this.createShadowRoot();
+		var template = doc.querySelector('#news').content;
+		template.querySelector('img').src = this.querySelector('wc-new-image').textContent;
+		root.appendChild(template.cloneNode(true));
+	};
+
+	document.registerElement ('wc-news', 
+		{ prototype: WCNewPrototype }
+	);
+});
+		
+</script>

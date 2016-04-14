@@ -1,0 +1,58 @@
+<link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
+
+<dom-module id="wc-movie">
+	
+	<template>
+		
+		<style>
+			#movie {
+				margin: 10px;
+				padding: 20px;
+				border: solid 2px #ccc;
+				border-radius: 25px;
+				box-shadow: 5px 5px 5px #bbb;
+			}	
+		</style>
+
+		<div id="movie">
+			<div id="title"></div>
+			<img src=""></img>
+			<div id="overview"></div>
+			<select name="select">
+				<option value="sesi1" selected>18:00</option> 
+				<option value="value2">20:00</option>
+				<option value="value3">22:00</option>
+			</select>
+			<button id="ticket">Buy ticket</button>
+		</div>
+
+	</template>
+	
+	<script>
+		
+	(function () {
+		WCMovie = Polymer ({
+			is : 'wc-movie',
+			properties : {
+				title : {
+					type : String,
+					value: ''
+				},
+				overview : {
+					type : String,
+					value: ''
+				},
+			},
+			ready: function () {
+				var dtitle = this.$.title;
+				dtitle.textContent = 'Title';
+				var doverview = this.$.overview;
+				doverview.textContent = 'Overview';
+			}
+		});	
+	})();
+
+	</script>
+
+</dom-module>
+
