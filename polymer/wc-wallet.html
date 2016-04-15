@@ -8,8 +8,8 @@
 			#wallet {
 				margin: 10px;
 				padding: 20px;
-				border: solid 2px #ccc;
 				border-radius: 25px;
+				background: #7890A8;
 			}
 			.block {
 				display: block;
@@ -18,7 +18,7 @@
 
 		<div id="wallet">
 			<h1>Wallet</h1>
-			<content></content>
+			{{ticket}}
 		</div>
 
 	</template>
@@ -29,7 +29,7 @@
 		WCWallet = Polymer ({
 			is : 'wc-wallet',
 			addTicket : function (ticket) {
-				console.log('Ticket', ticket);
+				this.querySelector('#wallet').appendChild(ticket);
 			},
 			ready : function () {
 				

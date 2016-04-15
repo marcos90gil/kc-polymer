@@ -8,8 +8,8 @@
 			#window {
 				margin: 10px;
 				padding: 20px;
-				border: solid 2px #ccc;
 				border-radius: 25px;
+				background: #7890A8;
 			}
 			.block {
 				display: block;
@@ -28,7 +28,13 @@
 		
 	(function () {
 		WCWindow = Polymer ({
-			is : 'wc-window',		
+			is : 'wc-window',
+			properties : {
+				wallet : {
+					type : String,
+					value : ''
+				}
+			},		
 			ready : function () {
 				var movies = Polymer.dom(this).querySelectorAll('wc-movie');
 				movies.forEach(function (movie) {
@@ -37,7 +43,7 @@
 							var ticket = new WCTicket();
 							ticket.title = movie.title;
 							ticket.session = evt.target.value;
-							this.parentNode.querySelector('#wallet').addTicket(ticket);
+							this.parentNode.querySelector(this.wallet).addTicket(ticket);
 						}
 					}.bind(this));
 				}.bind(this));
