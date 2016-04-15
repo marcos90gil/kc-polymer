@@ -26,9 +26,9 @@
 			<h3 id="title">{{title}}</h3>
 			<div id="overview"></div>
 			<div class="block centered">
-				<button id="ses1" value="18:00">18:00</button>
-				<button id="ses2" value="20:00">20:00</button>
-				<button id="ses3" value="22:00">22:00</button>
+				<button on-click="WCMovieClick" id="ses1" value="18:00">18:00</button>
+				<button on-click="WCMovieClick" id="ses2" value="20:00">20:00</button>
+				<button on-click="WCMovieClick" id="ses3" value="22:00">22:00</button>
 			</div>
 		</div>
 
@@ -65,6 +65,14 @@
 
 			getSeat : function (row, col) {
 				return row + col;
+			},
+
+			WCMovieClick : function (e) {
+				e.stopPropagation;
+				this.fire('wc-movie-click', {
+					title : this.title,
+					session : e.target.value
+				});
 			},
 
 			ready : function () {

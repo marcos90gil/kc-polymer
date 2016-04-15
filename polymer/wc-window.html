@@ -19,7 +19,7 @@
 
 		<div id="window">
 			<h1>Window</h1>
-			<div id="c">
+			<div on-wc-movie-click="onClick">
 				<content></content>
 			</div>
 		</div>
@@ -37,11 +37,15 @@
 					value : ''
 				}
 			},
-			listeners : {
-				'c.click' : 'onClick',
-			},		
-			onClick : function (evt) {
-				console.log('onClick', evt);
+			onClick : function (e, ctx) {
+				var ticket = new WCTicket();
+				ticket.title = ctx.title;
+				ticket.session = ctx.session;
+				this.parentNode.querySelector(this.wallet).addTicket(ticket);
+			},
+
+			ready: function () {
+				
 			}
 		});	
 	})();
