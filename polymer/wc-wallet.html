@@ -28,12 +28,11 @@
 	(function () {
 		WCWallet = Polymer ({
 			is : 'wc-wallet',
+
 			addTicket : function (ticket) {
-				this.querySelector('#wallet').appendChild(ticket);
-			},
-			ready : function () {
-				
+				this.$.wallet.appendChild(ticket);
 			}
+			
 		});	
 	})();
 

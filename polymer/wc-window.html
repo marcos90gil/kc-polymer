@@ -33,15 +33,17 @@
 			is : 'wc-window',
 			properties : {
 				wallet : {
-					type : String,
-					value : ''
+					type : Object,
+					value : function () {
+						return {};
+					}
 				}
 			},
 			onClick : function (e, ctx) {
 				var ticket = new WCTicket();
 				ticket.title = ctx.title;
 				ticket.session = ctx.session;
-				this.parentNode.querySelector(this.wallet).addTicket(ticket);
+				this.wallet.addTicket(ticket);
 			},
 
 			ready: function () {
