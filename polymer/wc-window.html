@@ -19,7 +19,9 @@
 
 		<div id="window">
 			<h1>Window</h1>
-			<content></content>
+			<div id="c">
+				<content></content>
+			</div>
 		</div>
 
 	</template>
@@ -34,21 +36,12 @@
 					type : String,
 					value : ''
 				}
+			},
+			listeners : {
+				'c.click' : 'onClick',
 			},		
-			ready : function () {
-				console.log (Polymer.dom(this).children.length) 
-				console.log (Polymer.dom(this).getEffectiveChildNodes().length)
-				var movies = Polymer.dom(this).querySelectorAll('wc-movie');
-				movies.forEach(function (movie) {
-					movie.addEventListener('click', function (evt) {
-						if (evt.target.value) {
-							var ticket = new WCTicket();
-							ticket.title = movie.title;
-							ticket.session = evt.target.value;
-							this.parentNode.querySelector(this.wallet).addTicket(ticket);
-						}
-					}.bind(this));
-				}.bind(this));
+			onClick : function (evt) {
+				console.log('onClick', evt);
 			}
 		});	
 	})();
