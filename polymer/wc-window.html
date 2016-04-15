@@ -8,8 +8,8 @@
 			#window {
 				margin: 10px;
 				padding: 20px;
-				border: solid 2px #ccc;
 				border-radius: 25px;
+				background: #7890A8;
 			}
 			.block {
 				display: block;
@@ -19,7 +19,9 @@
 
 		<div id="window">
 			<h1>Window</h1>
-			<content></content>
+			<div on-wc-movie-click="onClick">
+				<content></content>
+			</div>
 		</div>
 
 	</template>
@@ -28,19 +30,24 @@
 		
 	(function () {
 		WCWindow = Polymer ({
-			is : 'wc-window',		
-			ready : function () {
-				var movies = Polymer.dom(this).querySelectorAll('wc-movie');
-				movies.forEach(function (movie) {
-					movie.addEventListener('click', function (evt) {
-						if (evt.target.value) {
-							var ticket = new WCTicket();
-							ticket.title = movie.title;
-							ticket.session = evt.target.value;
-							this.parentNode.querySelector('#wallet').addTicket(ticket);
-						}
-					}.bind(this));
-				}.bind(this));
+			is : 'wc-window',
+			properties : {
+				wallet : {
+					type : Object,
+					value : function () {
+						return {};
+					}
+				}
+			},
+			onClick : function (e, ctx) {
+				var ticket = new WCTicket();
+				ticket.title = ctx.title;
+				ticket.session = ctx.session;
+				this.wallet.addTicket(ticket);
+			},
+
+			ready: function () {
+				
 			}
 		});	
 	})();

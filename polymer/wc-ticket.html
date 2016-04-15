@@ -8,9 +8,9 @@
 			#ticket {
 				margin: 10px;
 				padding: 20px;
-				border: solid 2px #ccc;
 				border-radius: 25px;
-				box-shadow: 5px 5px 5px #bbb;
+				box-shadow: 5px 5px 5px #46596d;
+				background: #D8F018;
 			}
 			.block {
 				display: block;
@@ -18,19 +18,13 @@
 		</style>
 
 		<div id="ticket">
-			<h2>Ticket</h2>
 			<img src=""></img>
-			<div id="title">{{title}}</div>
+			<h2>Ticket</h2>
+			<h3 id="title">{{title}}</h3>
 			<div id="overview">{{overview}}</div>
 			<div class="block">
-				<span>Session</span>
-				<div id="session">{{session}}</div>
-			</div>
-			<div class="block">
-				<span>Column</span>
-				<div id="col">{{col}}</div>
-				<span>Row</span>
-				<div id="row">{{row}}</div>
+				<span>Session:</span>
+				<span id="session">{{session}}</span>
 			</div>
 		</div>
 
@@ -42,6 +36,10 @@
 		WCTicket = Polymer ({
 			is : 'wc-ticket',
 			properties : {
+				img : {
+					type : String,
+					value: ''
+				},
 				title : {
 					type : String,
 					value: ''

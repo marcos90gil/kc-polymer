@@ -3,20 +3,24 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Polymer Cinema</title>
-	<link rel="import" href="./wc-window.html">
-	<link rel="import" href="./wc-movie.html">
-	<link rel="import" href="./wc-wallet.html">
-	<link rel="import" href="./wc-ticket.html">
+	
+	<link href='https://fonts.googleapis.com/css?family=Catamaran:400,700' rel='stylesheet' type='text/css'>
+	
+	<link rel="import" href="./wc-text.html">
+	
+	<style>
+		body {
+			font-family: 'Catamaran', sans-serif;
+			text-align: center;
+			color: #1e262f;
+		}
+	</style>
+
 </head>
 <body>
 
-	<wc-window wallet="#wallet">
-		<wc-movie title="American Gangster"></wc-movie>
-		<wc-movie title="Argo"></wc-movie>
-
-	</wc-window>
-
-	<wc-wallet id="wallet"></wc-wallet>	
+	<wc-text>
+	</wc-text>
 	
 </body>
 </html>
