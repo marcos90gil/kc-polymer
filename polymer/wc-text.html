@@ -7,7 +7,9 @@
 <dom-module id="wc-text">
 	
 	<template>
-		<wc-cinema movies="{{movies}}"></wc-cinema>
+		<button value="X" on-tap="onTap">Toggle</button>
+		<wc-cinema movies="{{m1}}" value="X"></wc-cinema>
+		<wc-cinema movies="{{m2}}" value="Y"></wc-cinema>
 		
 		<wc-window wallet="{{wallet}}" movies="[[movies]]"></wc-window>
 
@@ -26,11 +28,32 @@
 						value : function () {
 							return {};	
 						}
+					},
+					movies : {
+						type : Object
+					},
+					m1 : {
+						type : Array
+					},
+					m2 : {
+						type : Array
 					}
 				},
 				
+				onTap : function (e) {
+					if (e.target.value === 'X') {
+						this.movies = this.m2;
+						e.target.value = 'Y';
+					} else {
+						this.movies = this.m1;
+						e.target.value = 'X';
+					}
+
+				},
+
 				ready: function () {
 					this.wallet = this.$.A;	
+					this.movies = this.m1;
 				}
 			});	
 		})();

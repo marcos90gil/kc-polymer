@@ -24,7 +24,7 @@
 
 		<div id="window">
 			<h1>Window</h1>
-			<div on-movie-click="onSession">
+			<div on-wc-movie-click="onMovieClick">
 				<template is="dom-repeat" items="{{movies}}" as="movie">
 					<wc-movie poster="{{movie.poster_url}}" title="{{movie.title}}" overview="{{movie.overview}}" ></wc-movie>
 				</template>
@@ -52,8 +52,7 @@
 						}
 					}
 				},
-				onSession : function (e, ctx) {
-					console.log('on session');
+				onMovieClick : function (e, ctx) {
 					var ticket = new WCTicket();
 					ticket.title = ctx.title;
 					ticket.session = ctx.session;

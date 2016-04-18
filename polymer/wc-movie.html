@@ -12,6 +12,9 @@
 				box-shadow: 5px 5px 5px #46596d;
 				background: #D8F018;
 			}
+			img {
+				border-radius: 25px;
+			}
 			.block {
 				display: block;
 			}
@@ -22,9 +25,11 @@
 
 		<div id="movie">
 			<h2>Movie</h2>
-			<img src="{{poster}}">
-			<h3 id="title">{{title}}</h3>
-			<div id="overview">{{overview}}</div>
+			<div class="block">
+				<img src="{{poster}}">
+				<h3 id="title">{{title}}</h3>
+				<div id="overview">{{overview}}</div>
+			</div>
 			<div class="block centered">
 				<button on-click="onMovieClick" id="ses1" value="18:00">18:00</button>
 				<button on-click="onMovieClick" id="ses2" value="20:00">20:00</button>
