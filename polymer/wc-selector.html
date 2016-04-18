@@ -16,6 +16,14 @@
 			WCSelector = Polymer ({
 				is : 'wc-selector',
 				properties : {
+					selected : {
+						type : Number,
+						value : 0,
+						notify : true
+					},
+					key : {
+						type : String
+					},
 					data : {
 						type : Object
 					},
@@ -28,6 +36,10 @@
 				},
 				
 				onTap : function (e) {
+					var length = Polymer.dom(this).children.length;
+					console.log('SELECTED', this.selected, 'LENGTH', length);
+					this.selected = (this.selected + 1) % (length);
+					console.log('SELECTED', this.selected);
 					if (e.target.value === 'A') {
 						this.data = this.B;
 						e.target.value = 'B';
@@ -40,6 +52,7 @@
 				},
 
 				ready : function () {
+					console.log('Selector childrens', this.children);
 					this.data = this.A;
 					this.notifyPath('data', this.data);
 				}
