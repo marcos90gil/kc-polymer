@@ -21,14 +21,14 @@
 		</style>
 
 		<div id="movie">
-			<img src=""></img>
 			<h2>Movie</h2>
+			<img src="{{poster}}">
 			<h3 id="title">{{title}}</h3>
-			<div id="overview"></div>
+			<div id="overview">{{overview}}</div>
 			<div class="block centered">
-				<button on-click="WCMovieClick" id="ses1" value="18:00">18:00</button>
-				<button on-click="WCMovieClick" id="ses2" value="20:00">20:00</button>
-				<button on-click="WCMovieClick" id="ses3" value="22:00">22:00</button>
+				<button on-click="onMovieClick" id="ses1" value="18:00">18:00</button>
+				<button on-click="onMovieClick" id="ses2" value="20:00">20:00</button>
+				<button on-click="onMovieClick" id="ses3" value="22:00">22:00</button>
 			</div>
 		</div>
 
@@ -45,6 +45,10 @@
 					value: ''
 				},
 				overview : {
+					type : String,
+					value: ''
+				},
+				poster : {
 					type : String,
 					value: ''
 				},
@@ -67,7 +71,7 @@
 				return row + col;
 			},
 
-			WCMovieClick : function (e) {
+			onMovieClick : function (e) {
 				e.stopPropagation;
 				this.fire('wc-movie-click', {
 					title : this.title,

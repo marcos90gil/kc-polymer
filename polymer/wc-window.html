@@ -1,5 +1,8 @@
 <link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
 
+<link rel="import" href="./wc-movie.html">
+<link rel="import" href="./wc-ticket.html">
+
 <dom-module id="wc-window">
 	
 	<template>
@@ -14,13 +17,17 @@
 			.block {
 				display: block;
 			}
-
+			.centered {
+				text-align: center;
+			}	
 		</style>
 
 		<div id="window">
 			<h1>Window</h1>
-			<div on-wc-movie-click="onClick">
-				<content></content>
+			<div on-movie-click="onSession">
+				<template is="dom-repeat" items="{{movies}}" as="movie">
+					<wc-movie poster="{{movie.poster_url}}" title="{{movie.title}}" overview="{{movie.overview}}" ></wc-movie>
+				</template>
 			</div>
 		</div>
 
@@ -28,29 +35,36 @@
 	
 	<script>
 		
-	(function () {
-		WCWindow = Polymer ({
-			is : 'wc-window',
-			properties : {
-				wallet : {
-					type : Object,
-					value : function () {
-						return {};
+		(function () {
+			WCWindow = Polymer ({
+				is : 'wc-window',
+				properties : {
+					wallet : {
+						type : Object,
+						value : function () {
+							return {};
+						}
+					},
+					movies : {
+						type : Array,
+						value : function () {
+							return [];
+						}
 					}
-				}
-			},
-			onClick : function (e, ctx) {
-				var ticket = new WCTicket();
-				ticket.title = ctx.title;
-				ticket.session = ctx.session;
-				this.wallet.addTicket(ticket);
-			},
+				},
+				onSession : function (e, ctx) {
+					console.log('on session');
+					var ticket = new WCTicket();
+					ticket.title = ctx.title;
+					ticket.session = ctx.session;
+					this.wallet.addTicket(ticket);
+				},
 
-			ready: function () {
-				
-			}
-		});	
-	})();
+				ready: function () {
+					
+				}
+			});	
+		})();
 
 	</script>
 

@@ -1,49 +1,39 @@
 <link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
 	
 <link rel="import" href="./wc-window.html">
-<link rel="import" href="./wc-movie.html">
+<link rel="import" href="./wc-cinema.html">
 <link rel="import" href="./wc-wallet.html">
-<link rel="import" href="./wc-ticket.html">
 
 <dom-module id="wc-text">
 	
 	<template>
-
-		<wc-window wallet="{{wallet}}">
-			<wc-movie title="American Gangster"></wc-movie>
-			
-		</wc-window>
+		<wc-cinema movies="{{movies}}"></wc-cinema>
+		
+		<wc-window wallet="{{wallet}}" movies="[[movies]]"></wc-window>
 
 		<wc-wallet id="A"></wc-wallet>	
-
-		<wc-window wallet="{{wallet}}">
-			<wc-movie title="The room"></wc-movie>
-			<wc-movie title="Deadpool"></wc-movie>
-		</wc-window>
-
-		<wc-wallet id="B"></wc-wallet>	
 	
 	</template>
 
 	<script>
 		
-	(function () {
-		WCText = Polymer ({
-			is : 'wc-text',
-			properties : {
-				wallet : {
-					type : Object,
-					value : function () {
-						return {};	
+		(function () {
+			WCText = Polymer ({
+				is : 'wc-text',
+				properties : {
+					wallet : {
+						type : Object,
+						value : function () {
+							return {};	
+						}
 					}
+				},
+				
+				ready: function () {
+					this.wallet = this.$.A;	
 				}
-			},
-			
-			ready: function () {
-				this.wallet = this.$.A;	
-			}
-		});	
-	})();
+			});	
+		})();
 
 	</script>
 

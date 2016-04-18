@@ -1,0 +1,46 @@
+<link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
+
+<dom-module id="wc-cinema">
+	
+	<script>
+		
+		(function () {
+			WCCinema = Polymer ({
+				is : 'wc-cinema',
+				properties : {
+					movies : {
+						type : Array,
+						value : function () {
+							return [];
+						},
+						notify : true
+					}
+				},
+				
+				ready: function () {
+					this.movies = 
+						[
+							{
+								"rating": 8.2, "title": "Interstellar", 
+								"overview": "Interstellar chronicles the adventures of a group of explorers who make use of a newly discovered wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an interstellar voyage.", 
+								"release_date": "2014-11-06T23:00:00.000Z", 
+								"poster_url": "https://image.tmdb.org/t/p/w185/nBNZadXqJSdt05SHLqgT0HuC5Gm.jpg", 
+								"id": 7
+							},
+							{
+								"rating": 7.2, 
+								"title": "The Revenant", 
+								"overview": "In the 1820s, a frontiersman, Hugh Glass, sets out on a path of vengeance against those who left him for dead after a bear mauling.", 
+								"release_date": "2016-02-04T23:00:00.000Z", 
+								"poster_url": "https://image.tmdb.org/t/p/w185/oXUWEc5i3wYyFnL1Ycu8ppxxPvs.jpg", 
+								"id": 8
+							}
+						];
+					this.notifyPath('movies', this.movies);
+				}
+			});	
+		})();
+
+	</script>
+
+</dom-module>
