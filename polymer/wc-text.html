@@ -1,15 +1,13 @@
 <link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
 	
+<link rel="import" href="./wc-selector.html">
 <link rel="import" href="./wc-window.html">
-<link rel="import" href="./wc-cinema.html">
 <link rel="import" href="./wc-wallet.html">
 
 <dom-module id="wc-text">
 	
 	<template>
-		<button value="X" on-tap="onTap">Toggle</button>
-		<wc-cinema movies="{{m1}}" value="X"></wc-cinema>
-		<wc-cinema movies="{{m2}}" value="Y"></wc-cinema>
+		<wc-selector data="{{movies}}"></wc-selector>
 		
 		<wc-window wallet="{{wallet}}" movies="[[movies]]"></wc-window>
 
@@ -31,29 +29,11 @@
 					},
 					movies : {
 						type : Object
-					},
-					m1 : {
-						type : Array
-					},
-					m2 : {
-						type : Array
 					}
 				},
 				
-				onTap : function (e) {
-					if (e.target.value === 'X') {
-						this.movies = this.m2;
-						e.target.value = 'Y';
-					} else {
-						this.movies = this.m1;
-						e.target.value = 'X';
-					}
-
-				},
-
 				ready: function () {
-					this.wallet = this.$.A;	
-					this.movies = this.m1;
+					this.wallet = this.$.A;
 				}
 			});	
 		})();
