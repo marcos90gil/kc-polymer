@@ -1,0 +1,46 @@
+<dom-module id="wc-selector">
+	
+	<template>
+		<button on-tap="onTap">Toggle</button>
+	</template>
+
+	<script>
+		
+		(function () {
+			WCSelector = Polymer ({
+				is : 'wc-selector',
+				properties : {
+					selected : {
+						type : Number,
+						value : 0,
+						notify : true
+					},
+					key : {
+						type : String
+					},
+					data : {
+						type : Object
+					}
+				},
+				
+				onTap : function (e) {
+					var children = Polymer.dom(this).children;
+					var length = Polymer.dom(this).children.length;
+					this.selected = (this.selected + 1) % (length);
+					this.child = children[this.selected];
+					this.data = this.child[this.key];
+					this.notifyPath('data', this.data);
+				},
+
+				ready : function () {
+					this.async(function () {
+						this.data = Polymer.dom(this).children[0][this.key];
+						this.notifyPath('data', this.data);
+					}.bind(this), 500);
+				}
+			});	
+		})();
+
+	</script>
+
+</dom-module>

@@ -1,0 +1,12 @@
+body {
+  background: #fafafa;
+  color: #333;
+}
+
+.page-title {
+  outline: none;
+}
+
+.title {
+    font-size:60px;
+}

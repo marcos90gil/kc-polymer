@@ -1,0 +1,25 @@
+{
+  "name": "polymer-cinema",
+  "version": "0.1.0",
+  "authors": [
+    "Marcos Gil <@marcos90gil>"
+  ],
+  "description": "A cinema project",
+  "main": "index.html",
+  "keywords": [
+    "web-components",
+    "web",
+    "components"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    
+  }
+}

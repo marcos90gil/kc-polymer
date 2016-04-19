@@ -1,8 +1,3 @@
-<link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
-
-<link rel="import" href="./wc-movie.html">
-<link rel="import" href="./wc-ticket.html">
-
 <dom-module id="wc-window">
 	
 	<template>
@@ -20,6 +15,9 @@
 			.centered {
 				text-align: center;
 			}	
+			:host {
+				--background: gold;
+			}
 		</style>
 
 		<div id="window">
@@ -46,10 +44,7 @@
 						}
 					},
 					movies : {
-						type : Array,
-						value : function () {
-							return [];
-						}
+						type : Array
 					}
 				},
 				onMovieClick : function (e, ctx) {
