@@ -20,6 +20,9 @@
 			.centered {
 				text-align: center;
 			}	
+			:host {
+				--background: gold;
+			}
 		</style>
 
 		<div id="window">
@@ -46,10 +49,7 @@
 						}
 					},
 					movies : {
-						type : Array,
-						value : function () {
-							return [];
-						}
+						type : Array
 					}
 				},
 				onMovieClick : function (e, ctx) {
