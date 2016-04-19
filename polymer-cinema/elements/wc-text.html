@@ -1,13 +1,17 @@
-<link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
+<link href='https://fonts.googleapis.com/css?family=Catamaran:400,700' rel='stylesheet' type='text/css'>
 	
-<link rel="import" href="./wc-selector.html">
-<link rel="import" href="./wc-cinema.html">
-<link rel="import" href="./wc-window.html">
-<link rel="import" href="./wc-wallet.html">
-
 <dom-module id="wc-text">
 	
 	<template>
+		
+		<style>
+			body {
+				font-family: 'Catamaran', sans-serif;
+				text-align: center;
+				color: #1e262f;
+			}
+		</style>
+
 		<wc-selector key="movies" data="{{movies}}">
 			<wc-cinema movies="{{A}}"></wc-cinema>
 			<wc-cinema movies="{{B}}"></wc-cinema>
